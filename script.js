@@ -14,6 +14,24 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
+
+if (Number.isNaN(length)) {
+  alert('Password length must be provided as a number');
+  return null;
+}
+
+  // Conditional statement to check if password length is at least 8 characters long. Prompts end if this evaluates false
+  if (length < 8) {
+    alert('Password length must be at least 8 characters');
+    return null;
+  }
+  // Conditional statement to check if password length is less than 128 characters long. Prompts end if this evaluates false
+  if (length > 128) {
+    alert('Password length must less than 129 characters');
+    return null;
+  }
+
 function getPassword() {
   var length = parseInt( prompt("Password generated will be between 8 and 128 character."),);
   var hasSpecialChar = confirm(
