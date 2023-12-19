@@ -73,7 +73,7 @@ function getRandom(arr) {
 
   function generatePassword() {
     var options = getPasswordOptions();
-    // Variable to store password as it's being concatenated
+   
     var result = [];
 }
 
@@ -85,3 +85,37 @@ if (options.hasSpecialCharacters) {
   possibleCharacters = possibleCharacters.concat(specialCharacters);
   guaranteedCharacters.push(getRandom(specialCharacters));
 }
+if (options.hasNumericCharacters) {
+  possibleCharacters = possibleCharacters.concat(numericCharacters);
+  guaranteedCharacters.push(getRandom(numericCharacters));
+}
+
+if (options.hasLowerCasedCharacters) {
+  possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
+  guaranteedCharacters.push(getRandom(lowerCasedCharacters));
+}
+
+if (options.hasUpperCasedCharacters) {
+  possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
+  guaranteedCharacters.push(getRandom(upperCasedCharacters));
+}
+for (var i = 0; i < options.length; i++) {
+  var possibleCharacter = getRandom(possibleCharacters);
+  result.push(possibleCharacter);
+}
+for (var i = 0; i < guaranteedCharacters.length; i++) {
+  result[i] = guaranteedCharacters[i];
+
+return result.join('');
+}
+
+
+var generateBtn = document.querySelector('#generate');
+
+function writePassword() {
+var password = generatePassword();
+var passwordText = document.querySelector('#password');
+passwordText.value = password;
+}
+
+generateBtn.addEventListener('click', writePassword);
