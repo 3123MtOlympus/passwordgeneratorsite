@@ -1,4 +1,3 @@
-// Assignment Code
 var password = generatePassword();
   var passwordText = document.querySelector("#password");
   var specialChar = ["!", "@", "#", "$", "&", "*", "_", "?"]
@@ -8,7 +7,6 @@ var password = generatePassword();
 
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
 function writePassword() {
   
   passwordText.value = password;
@@ -21,35 +19,39 @@ if (Number.isNaN(length)) {
   return null;
 }
 
-  // Conditional statement to check if password length is at least 8 characters long. Prompts end if this evaluates false
-  if (length < 8) {
+if (length < 8) {
     alert('Password length must be at least 8 characters');
     return null;
   }
-  // Conditional statement to check if password length is less than 128 characters long. Prompts end if this evaluates false
+
   if (length > 128) {
     alert('Password length must less than 129 characters');
     return null;
   }
 
-function getPassword() {
-  var length = parseInt( prompt("Password generated will be between 8 and 128 character."),);
-  var hasSpecialChar = confirm(
-    'Click OK to confirm');
-  
-}
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+var hasSpecialCharacters = confirm(
+  'Click OK to confirm including special characters.'
+);
 
+var hasNumericCharacters = confirm(
+  'Click OK to confirm including numeric characters.'
+);
 
-let writePassword = prompt("Do you want to use Special Character's?");
-switch(specialChar) {
-  case "yes":
-    text = "Sure thing!";
-    break;
-    case "no":
-      text = "No problem";
+var hasLowerCasedCharacters = confirm(
+  'Click OK to confirm including lowercase characters.'
+);
 
+var hasUpperCasedCharacters = confirm(
+  'Click OK to confirm including uppercase characters.'
+);
 
+if (
+  hasSpecialCharacters === false &&
+  hasNumericCharacters === false &&
+  hasLowerCasedCharacters === false &&
+  hasUpperCasedCharacters === false
+) {
+  alert('Must select at least one character type');
+  return null;
 }
