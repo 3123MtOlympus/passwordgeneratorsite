@@ -55,3 +55,33 @@ if (
   alert('Must select at least one character type');
   return null;
 }
+
+var passwordOptions = {
+  length: length,
+  hasSpecialCharacters: hasSpecialCharacters,
+  hasNumericCharacters: hasNumericCharacters,
+  hasLowerCasedCharacters: hasLowerCasedCharacters,
+  hasUpperCasedCharacters: hasUpperCasedCharacters,
+};
+return passwordOptions;
+
+function getRandom(arr) {
+  var randIndex = Math.floor(Math.random() * arr.length);
+  var randElement = arr[randIndex];
+  return randElement;
+}
+
+  function generatePassword() {
+    var options = getPasswordOptions();
+    // Variable to store password as it's being concatenated
+    var result = [];
+}
+
+var possibleCharacters = [];
+var guaranteedCharacters = [];
+if (!options) return null;
+
+if (options.hasSpecialCharacters) {
+  possibleCharacters = possibleCharacters.concat(specialCharacters);
+  guaranteedCharacters.push(getRandom(specialCharacters));
+}
